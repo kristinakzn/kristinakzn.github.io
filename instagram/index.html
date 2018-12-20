@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+<!--
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+		<script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+ -->
+<!--
+		<script src="./echo.min.js"></script>
+ -->
+		<script src="./echarts.common.min.js"></script>
+		<script type="text/javascript" language="javascript" src="./before.json"></script>
+		<script type="text/javascript" language="javascript" src="./after.json"></script>
+		<script type="text/javascript" language="javascript" src="./end.json"></script>
+		<title>
+			Big Data: Case of a Greedy Instagram
+		</title>
+		<style>
+			html {
+				margin: 0;
+				padding: 0;
+				position: relative;
+				min-height: 100%;
+			}
+			body {
+				/* Margin bottom by footer height */
+				margin-bottom: 60px;
+			}
+			.footer {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				/* Set the fixed height of the footer here */
+				height: 60px;
+				line-height: 60px; /* Vertically center the text there */
+				background-color: #f5f5f5;
+			}
+			.screen-scroll {
+				height: 340px;
+				overflow-y: scroll;
+
+			}
+			.phone-buffer {
+				height: 60px;
+				width: 100%;
+			}
+			.phone-screen {
+				background-color: white;
+				border-color: #555555;
+				border-radius: 2px;
+				margin: 0 5% 0 5%;
+			}
+
+.container {
+  max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }
+
+		</style>
+	</head>
+	<body>
+
+		<!-- HEADER -->
+		<header>
+
+			<nav class="site-header sticky-top py-1">
+			<div class="container d-flex flex-column flex-md-row justify-content-between">
+			<a class="py-2" href="">
+				Big Data: Case of a Greedy Instagram
+			</a>
+			<a class="py-2 d-none d-md-inline-block" href="#">Data</a>
+			<a class="py-2 d-none d-md-inline-block" href="#">Essay</a>
+			</div>
+			</nav>
+
+		</header>
+
+		<div class="container-fluid mt-4 mb-4">
+<hr>
+</div>
+		<!-- MAIN CONTENT -->
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+	<div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+		<div class="my-3 p-3">
+			<h2 class="display-5">
+				Before
+			</h2>
+			<p class="lead">
+				clean Instagram account
+			</p>
+		</div>
+		<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 400px; border-radius: 21px 21px 0 0;">
+			<div class="phone-buffer text-center align-top"><h1>___</h1></div>
+			<div class="phone-screen align-bottom screen-scroll">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col" id="before-insta-feed"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+		<div class="my-3 py-3">
+			<h2 class="display-5">
+				After
+			</h2>
+			<p class="lead">
+				1 hour of searching for cats
+			</p>
+		</div>
+		<div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 400px; border-radius: 21px 21px 0 0;">
+			<div class="phone-buffer text-center align-top"><h1>___</h1></div>
+			<div class="phone-screen align-bottom screen-scroll">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col" id="after-insta-feed"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+		<div class="my-3 p-3">
+			<h2 class="display-5">Final</h2>
+			<p class="lead">3 likes and follows later...</p>
+		</div>
+		<div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 400px; border-radius: 21px 21px 0 0;">
+			<div class="phone-buffer text-center align-top"><h1>___</h1></div>
+			<div class="phone-screen align-bottom screen-scroll">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col" id="end-insta-feed"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="container-fluid mt-4 mb-4">
+<hr>
+</div>
+		<div class="container-fluid mt-4 mb-4">
+			<div class="row mb-4">
+				<div class="col text-center">
+					<div class="jumbotron">
+						<div id="hashtagChart" class="ct-chart ct-square" style="width: 1100px; height: 5000px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<span class="text-muted">
+							Made by Angelina Sheveleva and Kristina Kuznetsova.
+						</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+
+			function shuffle (array) {
+				var currentIndex = array.length, temporaryValue, randomIndex;
+				// While there remain elements to shuffle...
+				while (0 !== currentIndex) {
+					// Pick a remaining element...
+					randomIndex = Math.floor (Math.random () * currentIndex);
+					currentIndex -= 1;
+					// And swap it with the current element.
+					temporaryValue = array [currentIndex];
+					array [currentIndex] = array [randomIndex];
+					array [randomIndex] = temporaryValue;
+				}
+				return array;
+			}
+
+			function injectInstaFeed (current, name) {
+				let instaFeed = document.getElementById (name + '-insta-feed');
+				let forInstaFeed = [];
+				for (let index in current.images) {
+					let item = current.images [index];
+					let imageHtml = '<div class="card">';
+	// 				imageHtml += '<img class="card-img-top" src="./640.png" data-echo="' + item.url + '" />';
+					imageHtml += '<img class="card-img-top" src="' + item.url + '" />';
+					imageHtml += '<div class="card-body">';
+					imageHtml += '<p class="card-text d-flex justify-content-around" style="color: black;">';
+					imageHtml += '<span><span class="text-danger">&hearts;</span> ' + item.likes + '</span><span><span class="text-info">&weierp;</span> ' + item.comments + '</span></p>';
+					imageHtml += '</div>';
+					imageHtml += '</div>';
+					forInstaFeed.push (imageHtml);
+				}
+				instaFeed.innerHTML = '<br>' + shuffle (forInstaFeed).slice (0, 10).join ('<br>');
+			}
+
+			injectInstaFeed (before, 'before');
+			injectInstaFeed (after, 'after');
+			injectInstaFeed (end, 'end');
+
+// 			let beforeInstaFeed = document.getElementById ('before-insta-feed');
+// 			let forBeforeInstaFeed = [];
+// 			for (let index in before.images) {
+// 				let item = before.images [index];
+// 				let imageHtml = '<div class="card">';
+// // 				imageHtml += '<img class="card-img-top" src="./640.png" data-echo="' + item.url + '" />';
+// 				imageHtml += '<img class="card-img-top" src="' + item.url + '" />';
+// 				imageHtml += '<div class="card-body">';
+// 				imageHtml += '<p class="card-text d-flex justify-content-around">';
+// 				imageHtml += '<span><span class="text-danger">&hearts;</span> ' + item.likes + '</span><span><span class="text-info">&weierp;</span> ' + item.comments + '</span></p>';
+// 				imageHtml += '</div>';
+// 				imageHtml += '</div>';
+// 				forBeforeInstaFeed.push (imageHtml);
+// 			}
+// 			beforeInstaFeed.innerHTML = '<br>' + shuffle (forBeforeInstaFeed).join ('<br>');
+
+			let chartData = {
+				labels: [],
+				series: [
+					[],
+					[],
+					[]
+				]
+			};
+			let chartSettings = {
+				seriesBarDistance: 10,
+				reverseData: true,
+				horizontalBars: true,
+				axisY: {
+					offset: 70
+				}
+			};
+
+			let newBefore = {
+				categories: {},
+				hashtags: {}
+			};
+			let newAfter = {
+				categories: {},
+				hashtags: {}
+			};
+			let newEnd = {
+				categories: {},
+				hashtags: {}
+			};
+			for (let index in before.hashtags) {
+				newBefore.hashtags [before.hashtags [index].name] = before.hashtags [index].count;
+			}
+			for (let index in before.categories) {
+				newBefore.categories [before.categories [index].name] = before.categories [index].count;
+			}
+			for (let index in after.hashtags) {
+				newAfter.hashtags [after.hashtags [index].name] = after.hashtags [index].count;
+			}
+			for (let index in after.categories) {
+				newAfter.categories [after.categories [index].name] = after.categories [index].count;
+			}
+
+			for (let index in end.hashtags) {
+				newEnd.hashtags [end.hashtags [index].name] = end.hashtags [index].count;
+			}
+			for (let index in end.categories) {
+				newEnd.categories [end.categories [index].name] = end.categories [index].count;
+			}
+
+
+			for (let index in before.hashtags) {
+				let item = before.hashtags [index];
+				chartData.labels.push (item.name);
+				chartData.series [0].push (item.count);
+				let afterCount = (typeof (newAfter.hashtags [item.name]) !== 'undefined') ? newAfter.hashtags [item.name] : 0;
+				let endCount = (typeof (newEnd.hashtags [item.name]) !== 'undefined') ? newEnd.hashtags [item.name] : 0;
+				chartData.series [1].push (afterCount);
+				chartData.series [2].push (endCount);
+			}
+
+// 			for (let index in after.hashtags) {
+// 				let item = after.hashtags [index];
+// 				if (typeof (newBefore.hashtags [item.name]) === 'undefined' && typeof (newEnd.hashtags [item.name]) === 'undefined') {
+// 					chartData.labels.push (item.name);
+// 					chartData.series [1].push (item.count);
+// 					let beforeCount = (typeof (newBefore.hashtags [item.name]) !== 'undefined') ? newBefore.hashtags [item.name] : 0;
+// 					let endCount = (typeof (newEnd.hashtags [item.name]) !== 'undefined') ? newEnd.hashtags [item.name] : 0;
+// 					chartData.series [0].push (beforeCount);
+// 					chartData.series [2].push (endCount);
+// 				}
+// 			}
+
+			chartData.labels.reverse ();
+			chartData.series [0].reverse ();
+			chartData.series [1].reverse ();
+			chartData.series [2].reverse ();
+
+			for (let index in end.hashtags) {
+				let item = end.hashtags [index];
+				if (item.count > 17) {
+					if (typeof (newBefore.hashtags [item.name]) === 'undefined' && typeof (newAfter.hashtags [item.name]) === 'undefined') {
+						chartData.labels.push (item.name);
+						chartData.series [2].push (item.count);
+						let beforeCount = (typeof (newBefore.hashtags [item.name]) !== 'undefined') ? newBefore.hashtags [item.name] : 0;
+						let afterCount = (typeof (newAfter.hashtags [item.name]) !== 'undefined') ? newAfter.hashtags [item.name] : 0;
+						chartData.series [0].push (beforeCount);
+						chartData.series [1].push (afterCount);
+					}
+				}
+			}
+
+			chartData.labels.reverse ();
+			chartData.series [0].reverse ();
+			chartData.series [1].reverse ();
+			chartData.series [2].reverse ();
+
+
+			window.onload = function () {
+// 				echo.init ();
+				var hashtagChart = echarts.init (document.getElementById ('hashtagChart'));
+				let option = {
+					title: {
+						text: 'Instagram Data Collected',
+						subtext: 'hashtags'
+					},
+					tooltip: {
+						trigger: 'axis',
+						axisPointer: {
+							type: 'shadow'
+						}
+					},
+					legend: {
+						data: ['before', 'after', 'end']
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					xAxis: {
+						type: 'value',
+						boundaryGap: [0, 0.01]
+					},
+					yAxis: {
+						type: 'category',
+						data: chartData.labels
+					},
+					series: [
+						{
+							name: 'before',
+							type: 'bar',
+							data: chartData.series [0]
+						},
+						{
+							name: 'after',
+							type: 'bar',
+							data: chartData.series [1]
+						},
+						{
+							name: 'end',
+							type: 'bar',
+							data: chartData.series [2]
+						}
+					]
+				};
+				hashtagChart.setOption (option);
+				// stick it here
+// 				new Chartist.Bar ('.ct-chart', chartData, chartSettings);
+			};
+		</script>
+		<!-- bootstrap scripts -->
+<!--
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ -->
+	</body>
+</html>
