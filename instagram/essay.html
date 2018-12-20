@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+		<title>
+			Big Data: Case of a Greedy Instagram
+		</title>
+		<style>
+			html {
+				margin: 0;
+				padding: 0;
+				position: relative;
+				min-height: 100%;
+			}
+			body {
+				/* Margin bottom by footer height */
+				margin-bottom: 60px;
+			}
+			.footer {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				/* Set the fixed height of the footer here */
+				height: 60px;
+				line-height: 60px; /* Vertically center the text there */
+				background-color: #f5f5f5;
+			}
+			.screen-scroll {
+				height: 340px;
+				overflow-y: scroll;
+
+			}
+			.phone-buffer {
+				height: 60px;
+				width: 100%;
+			}
+			.phone-screen {
+				background-color: white;
+				border-color: #555555;
+				border-radius: 2px;
+				margin: 0 5% 0 5%;
+			}
+
+
+			/*
+			 * Custom translucent site header
+			 */
+
+			.site-header {
+			  background-color: rgba(0, 0, 0, .85);
+			  -webkit-backdrop-filter: saturate(180%) blur(20px);
+			  backdrop-filter: saturate(180%) blur(20px);
+			}
+			.site-header a {
+			  color: #999;
+			  transition: ease-in-out color .15s;
+			}
+			.site-header a:hover {
+			  color: #fff;
+			  text-decoration: none;
+			}
+
+
+
+			/*
+			 * Extra utilities
+			 */
+
+			.flex-equal > * {
+			  -ms-flex: 1;
+			  flex: 1;
+			}
+			@media (min-width: 768px) {
+			  .flex-md-equal > * {
+			    -ms-flex: 1;
+			    flex: 1;
+			  }
+			}
+
+			.overflow-hidden { overflow: hidden; }
+
+		</style>
+	</head>
+	<body>
+<!-- HEADER -->
+		<header>
+			<nav class="site-header sticky-top py-1">
+				<div class="container d-flex flex-column flex-md-row justify-content-between">
+					<a class="py-2" href="./index.html">
+						Big Data: Case of a Greedy Instagram
+					</a>
+					<a class="py-2 d-none d-md-inline-block" href="./index.html">
+						Data
+					</a>
+					<a class="py-2 d-none d-md-inline-block" href="./essay.html">
+						Essay
+					</a>
+				</div>
+			</nav>
+		</header>
+		<div class="container-fluid mt-4 mb-4">
+			<hr>
+		</div>
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link" href="#title">
+					Title
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#background">
+					Background
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#approach">
+					The Approach
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#findings">
+					Findings
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#conclusions">
+					Conclusions
+				</a>
+			</li>
+		</ul>
+		<div class="container-fluid mt-4 mb-4">
+			<hr>
+		</div>
+<!-- MAIN CONTENT -->
+		<div class="container-fluid mt-4 mb-4">
+			<div class="row mb-4">
+				<div class="col">
+					<div class="jumbotron">
+						<h1 id="title">
+							“Big Data”. Study case of a greedy Instagram
+						</h1>
+						<h2 id="background">
+							Background
+						</h2>
+						<p>
+							In a digital age, Big Data became a phenomenon that terrifies and fascinates people at the same time. Data – originally it is a social-economy phenomenon which appears because it becomes possible to analyze huge information content. Big data is the set of all structured and unstructured information; what people have in our days. There are 3 main aspects: volume, velocity and variety. Data always have a date. Structured data are those that can be easily organized and transferred in a data model, such as numbers or texts like name, date of birth, address, gender, etc. Such data can be processed, searched, combined, and analyzed relatively straightforwardly using calculus and algorithms, and can be visualized using various forms of graphs and maps, and easily processed by computers. Unstructured data - each individual element, such as text or photo, may have specific structure or format, not the same structure. They can often be searched, but they are not easily combined or computationally analyzed. Semi-structured data: a little structured data. Their structure can change. It is possible to combine them, but more difficult than structured ones.
+						</p>
+						<p>
+							All the existing softwares use Big Data to record all of your activities online (and offline) for the purpose of collecting and analyzing, to create an image of a potential customer. This is used mainly for consumerism purposes, since the collected knowledge helps to promote the goods interesting specifically for you, based on your personal preferences. Digital users are divided into two drastically different categories: the ones who do not know that their data is being constantly collected, and those who are aware of it. However, only the ones who possess some sort of advanced knowledge in computer language can set his/her digital gadget to the necessary level of security to prevent companies like Google, Facebook or Instagram to gather this data. That is why, it became interesting for us to find out how exactly the Big Data is collected and is it truth that these huge digital conglomerates brutally invade your privacy and circulate your search activity to automatically promote goods that you might be interested in, based on the profile they created from your search history.
+						</p>
+						<p>
+							We decided to use the case study of Instagram, since it is one of the most popular social networks nowadays. Besides, it is owned by Facebook, which brings the assumption that these two companies have an unbreakable bond and have to trade the information between each other to increase their revenues from advertising. The purpose of the research was simple: we wanted to see if there is an unspoken trade of personal information between the Big Data companies.
+						</p>
+						<h2 id="approach">
+							The approach
+						</h2>
+						<p>
+							To perform this experiment, we have created a blank Instagram account without any activity: never looked at no one’s content; liked video or photo; never left any trace of activity. Then, we created a new user on the laptop and set it at the lowest level of security, which implies that whenever we went online all our activity was allowed to be collected. We have been surfing through the internet for an hour, searching only the key word “cats” or “cute cats”. Opened as many major links as we could in this amount of time, enabled all the cookies, made an action on the page (clicked on link or items) to perform an action… We used such search engines like Google, Facebook, Youtube, Rutube, Yahooo! and etc. We consumed any possible content: pictures, videos, articles, even cat’s food shopping and etc. In short, we were purposefully leaving traces for all those companies who wanted to collect our data.
+						</p>
+						<p>
+							We went on the Instagram page, to the explore tab, and recorded the information of each post that Instagram was proposing: we extracted all analyzable information (reversing Big Data on Big Data) for example, hashtags, category and etc. Then we did the same procedure with the new set of the proposed posts, after we have been looking for cats on all the possible search engines for an hour straight. Then we waited for another two hours, and repeated the collection of the information from another set of Instagram offerings. After we were done with collecting the data we analyzed it. That specific account, we have created on our laptop, had a logged in account of that specific user on Instagram and could automatically draw the correlation with our search history. The main goal was to compare the differences in the first explore proposals with the proposals after we looked for cats on our laptop. If there was a dramatic change in our explore proposals, we would have had an irrefutable proof that Big Data companies indeed trade your private information with each other.
+						</p>
+						<h2 id="findings">
+							Findings
+						</h2>
+						<p>
+							But that was not the case. Our explore page did not change its proposals at all. It remained as neutral as it was. That was an unexpected discovery. If your data is really gathered from you through cookies and settings, why does not it affect immediate promotion of goods and services for you? The most unexpected aspect was the fact, that Facebook has collected our search history and could have created the profile to automatically synchronize it with Instagram, but it did not. It is logical to assume, that Facebook and Instagram work as the one company that bounces user’s data back in forth to optimize the advertising for a specific user. But, apparently, they do not.
+						</p>
+						<p>
+							To confirm our hypothesis, we liked three cat photos and followed three cat accounts from our blank Instagram account. The result was there in minutes- the whole explore page consisted of nothing but cats. Besides, someone followed us. The empty account. It became clear that there is an algorithm, which adapts based on your personal preferences. But that was not the shocking new knowledge. What was indeed interesting, is that these companies do collect your data but they do not exchange it to optimize their advertising capacities. If there was indeed an exchange, the process would have been automatic, since the algorithm adapts immediately with each new activity. But this experiment showed that softwares use Big Data only within their specific applications to better understand your preferences. They are not inclined to trade your data with someone, like majority nowadays would assume, but rather want to use it only within itself.
+						</p>
+						<h2 id="conclusions">
+							Conclusions
+						</h2>
+						<p>
+							This gave us enough evidence to draw several conclusions on this topic:
+							<ol>
+								<li>
+									we confirmed the existence of algorithm
+								</li>
+								<li>
+									we proved (for Instagram) that algorithms, usually, operate within a specific app
+								</li>
+								<li>
+									we found the evidence to disprove the assumptions that big data floats between the companies back and forth, and this flow is completely uncontrollable
+								</li>
+							</ol>
+							<p>
+								<p>
+									In this way, it becomes clear, that there is no specific terrifying invasion in your own privacy. Majority of people are not aware of the fact that the information, that is gathered by Big Data companies, mainly comes from the users. Whenever you enable cookies, once you visit a website, you consciously give away your activity. This means, that all the data that is gathered through your search activity, technically, is not unethically stolen from its users. And that is the reason we decided to mock this phenomenon in our project title: “The Greedy Instagram” does not want to share your activity. It is so greedy, it does not want to cooperate with the other softwares, even with its “father” Facebook, to get insights on the data from other users. It stores and operates your data within itself to optimize your portfolio. Consequently, its “greediness”, purposively, deprives the company of a larger revenue, but, ironically, protects your data in its own weird way.
+								</p>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- FOOTER -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<span class="text-muted">
+							Made by Angelina Sheveleva and Kristina Kuznetsova.
+						</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
